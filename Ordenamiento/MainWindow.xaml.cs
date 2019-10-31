@@ -67,7 +67,7 @@ namespace Ordenamiento
 
         private void BtnBubble_Click(object sender, RoutedEventArgs e)
         {
-            int i, j;
+            /* int i, j;
             int temp = 0;
             for(i =1; i < miLista.Count; i++)
             {
@@ -80,7 +80,22 @@ namespace Ordenamiento
                         miLista[j + 1] = temp;
                     }
                 }
-            }
+            } */
+
+            bool intercambio = false;
+            do
+            {
+                for (int i = 0; i < miLista.Count - 1; i++)
+                {
+                    if (miLista[i] > miLista[i + 1])
+                    {
+                        int temp = miLista[i];
+                        miLista[i] = miLista[i + 1];
+                        miLista[i + 1] = temp;
+                        intercambio = true;
+                    }
+                }
+            } while (intercambio);
         }
     }
 }
