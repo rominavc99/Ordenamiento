@@ -26,14 +26,14 @@ namespace Ordenamiento
         {
             InitializeComponent();
 
+            miLista.Add(1);
+            miLista.Add(3);
+            miLista.Add(2);
+            miLista.Add(4);
+            miLista.Add(5);
             miLista.Add(9);
-            miLista.Add(33);
-            miLista.Add(14);
-            miLista.Add(24);
-            miLista.Add(12);
-            miLista.Add(30);
-            miLista.Add(100);
-            miLista.Add(91);
+            miLista.Add(8);
+            miLista.Add(7);
 
             lstNumeros.ItemsSource = miLista;
         }
@@ -44,6 +44,7 @@ namespace Ordenamiento
               miLista[0] = miLista[3];
               miLista[3] = temp; */
 
+            //SHELL
             int gap, temp, i, j;
             gap = miLista.Count / 2;
 
@@ -51,7 +52,7 @@ namespace Ordenamiento
 
                 for(i = 0; i<miLista.Count; i++)
                 {
-                    if(miLista[i] > miLista[gap + i])
+                    if(gap + i < miLista.Count && miLista[i] > miLista[gap + i])
                     {
                         temp = miLista[i];
                         miLista[i] = miLista[gap + i];
@@ -60,6 +61,25 @@ namespace Ordenamiento
                 }
 
                 gap--;
+            }
+
+        }
+
+        private void BtnBubble_Click(object sender, RoutedEventArgs e)
+        {
+            int i, j;
+            int temp = 0;
+            for(i =1; i < miLista.Count; i++)
+            {
+                for (j = 0; j < miLista.Count - i; j++)
+                {
+                    if (miLista[j] > miLista[j + 1])
+                    {
+                        temp = miLista[j];
+                        miLista[j] = miLista[j + 1];
+                        miLista[j + 1] = temp;
+                    }
+                }
             }
         }
     }
